@@ -109,6 +109,7 @@ function App() {
 
   return (
     <>
+    <div className={Object.keys(countryData).length? 'countries-selected': 'none-selected'}>
     <Sidebar countryList={countries} 
              searchFilter={searchFilter} 
              handleSearch={handleSearch}
@@ -117,10 +118,12 @@ function App() {
              handleUnselectAll={handleUnselectAll}
              menuOpen={menuOpen}
               />
+    
     {Object.keys(countryData).length? <Main countryData={countryData}
                                         handleMenuToggle={handleMenuToggle}
                                         menuOpen={menuOpen} /> 
     : <main className='chart-area fill'><h1>Select Countries to See Data</h1></main>}
+    </div>
     </>
   );
 }
